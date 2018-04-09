@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 
 import Person from './Person/Person';
 
 class App extends Component {
+
   state = {
     persons: [
       { id: '1', name: 'Renê', age: 28 },
@@ -12,7 +13,7 @@ class App extends Component {
     ],
     otherState: 'Some value',
     showPersons: false
-  }
+  };
 
   deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons];
@@ -55,7 +56,7 @@ class App extends Component {
 
     let persons = null;
 
-    if (this.state.showPersons) {      
+    if (this.state.showPersons) {
 
       persons = (
         <div>
@@ -65,9 +66,9 @@ class App extends Component {
                 <Person
                   click={() => this.deletePersonHandler(index)}
                   name={person.name}
-                  age={person.age} 
+                  age={person.age}
                   key={person.id}
-                  changed={(event) => this.nameChangedHandler(event, person.id)}/>
+                  changed={(event) => this.nameChangedHandler(event, person.id)} />
               )
             }
             )
@@ -82,27 +83,27 @@ class App extends Component {
       };
     }
 
-    const classes = [];
+    const assignedClasses = [];
 
-    if(this.state.persons.length <= 2){
-      classes.push('red'); //classes = ['red']
+    if (this.state.persons.length <= 2) {
+      assignedClasses.push(classes.red); //classes = ['red']
     }
-    if(this.state.persons.length <=1){
-      classes.push('bold'); //classes = ['red', 'bold']
+    if (this.state.persons.length <= 1) {
+      assignedClasses.push(classes.bold); //classes = ['red', 'bold']
     }
 
     return (
-      
-      <div className="App">
+
+      <div className={classes.App}>
         <h1>Hi, from react App!</h1>
-        <p className={classes.join(' ')}>Hi, from react App!</p>
+        <p className={assignedClasses.join(' ')}>Hi, from react App!</p>
         <button
           style={style}
           onClick={this.tooglePersonsHandler}>Toggle Persons</button>
         {persons}
 
       </div>
-      
+
 
     );
     //return React.createElement("div", {className: "App"}, React.createElement("h1", null, "Sou um react App"));    
