@@ -20,7 +20,7 @@ class Person extends Component {
         //     <input key="3" type="text" onChange={this.props.changed} value={this.props.name} />
         // ];
     }
-};
+}
 
 Person.PropTypes = {
     click: PropTypes.func,

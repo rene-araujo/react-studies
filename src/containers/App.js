@@ -11,6 +11,7 @@ class App extends Component {
     console.log('[App.js] inside contructor', props);
   }
 
+  
   state = {
     persons: [
       { id: '1', name: 'Renê', age: 28 },
@@ -21,7 +22,7 @@ class App extends Component {
     showPersons: false,
     toogleClicked: 0
   };
-
+ 
   deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
