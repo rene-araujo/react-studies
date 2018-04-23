@@ -18,7 +18,8 @@ class App extends Component {
       { id: '3', name: 'Araujo', age: 99 }
     ],
     otherState: 'Some value',
-    showPersons: false
+    showPersons: false,
+    toogleClicked: 0
   };
 
   deletePersonHandler = (personIndex) => {
@@ -47,7 +48,18 @@ class App extends Component {
 
   tooglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
+    //old way
+    //this.setState({ showPersons: !doesShow });
+
+    //better way
+    this.setState(
+      (prevState, props) =>{
+        return{
+          showPersons: !doesShow,
+          toogleClicked: prevState.toogleClicked + 1
+        }
+      }
+    )
   }
 
   render() {
